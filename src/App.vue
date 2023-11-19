@@ -1,18 +1,22 @@
 <script>
 import axios from 'axios';
+import ProjectCard from './components/ProjectCard.vue';
 
 export default {
   name: 'App',
+  components: {
+    ProjectCard,
+  },
+
   data() {
     return {
-
+      message: 'Welcome back Vite+Vue',
       base_url: 'http://127.0.0.1:8000',
       projects_api: '/api/projects',
-
       projects: [],
-
     }
   },
+
   mounted() {
 
     axios
@@ -29,29 +33,31 @@ export default {
 
   }
 }
-
 </script>
 
 <template>
-  <div id="app">
 
+  <header class="bg-dark text-white mb-3 text-center">
+    {{ message }}
+    <h1>Header</h1>
+  </header>
 
-    <div class="container d-flex flex-wrap gap-2 justify-content-center mt-5">
-      <div class="card mt-3 col-md-3 p-2 shadow" v-for="project in projects.data">
-        <h2>{{ project.title }}</h2>
+  <div class="container">
+    <div class="row row-cols-3">
+      <div v-for="project in  projects.data " class="col p-3">
 
-          <img :src="base_url + '/storage/' + project.thumb" class="img-top img-fluid" alt="">
-          
-        <p>{{ project.description }}</p>
-        <small>{{ project.type }}</small>
-        <small>{{ project.technology}}</small>
+        <ProjectCard :thumb="project.thumb" :base_url="base_url" :title="project.title" :type="project.type"
+          :description="project.description" :github="project.github"
+          :link="project.link" :technologies="project.technologies"></ProjectCard>
+
       </div>
     </div>
-
-    <div class="container">
-    </div>
-
   </div>
+
+  <footer class="bg-dark text-white text-center mt-3">
+    <h1 class="m-0">Footer</h1>
+  </footer>
+
 </template>
 
 <style lang=scss scoped></style>
