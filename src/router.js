@@ -1,26 +1,36 @@
-// import rotta, componente e cronologia
-import { createWebHashHistory, createRouter } from 'vue-router';
+// 0.Import the createWebHashHistory and createRouter from vue-router
 
-// importiamo i componenti
-import HomeView from './views/HomeView.vue';
+import { createWebHashHistory, createRouter } from 'vue-router'
 
+import HomeView from './views/HomeView.vue'
+import SingleProjectView from './views/SingleProjectView.vue'
 
-//assegno ad una constante le ''
-const Home = '';
-const About = '';
+// 1. Define route components.
 
-//assegno ad una variabile routes il path con il componente associato
+//createApp(App).mount('#app')
+
+// 2. Define some routes
+
+//const HomeView = '';
+
 const routes = [
-
-    // le rotte devono iniziare sempre con /
-    { path: '/', component: HomeView},
-    /* { path: '/about', component: About}, */
+    {
+        path: '/', component: HomeView
+    },
+    {
+        path: '/project/:slug', name: 'project', component: SingleProjectView
+    }
 ]
 
-const router = createRouter( {
-    //creazione cronologia del router
+// 3. Create the router instance and pass the `routes` option
+
+const router = createRouter({
+
+    // 4. Provide the history implementation to use. We are using the hash history for simplicity here.
     history: createWebHashHistory(),
     routes
-});
 
-export {router};
+})
+
+// export the vue router instance
+export { router }

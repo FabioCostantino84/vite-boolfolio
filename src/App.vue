@@ -10,7 +10,7 @@ export default {
   <header>
     <nav class="navbar navbar-expand-sm navbar-light bg-light">
       <div class="container">
-        <a class="navbar-brand" href="#">Boolpress</a>
+        <a class="navbar-brand" href="#">Boolfolio</a>
         <button class="navbar-toggler d-lg-none" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav"
           aria-controls="mainNav" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
@@ -18,7 +18,7 @@ export default {
         <div class="collapse navbar-collapse" id="mainNav">
           <ul class="navbar-nav me-auto mt-2 mt-lg-0">
             <li class="nav-item">
-              <router-link class="nav-link active" to="/" aria-current="page">Home <span
+              <router-link class="nav-link active" to="/" aria-current="page">Home<span
                   class="visually-hidden">(current)</span></router-link>
             </li>
             <li class="nav-item">
@@ -50,6 +50,7 @@ export default {
 
   </header>
 
+  <!-- MAIN -->
   <main class="py-4">
 
     <router-view></router-view>
