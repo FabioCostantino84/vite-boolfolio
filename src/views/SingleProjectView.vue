@@ -47,7 +47,7 @@ export default {
 
   <!-- La sezione principale del template -->
   <div class="container">
-    <div class="row row-cols-3">
+    <div class=" row-cols-3 py-4">
 
       <!-- Utilizza il componente ProjectCard per visualizzare le informazioni del progetto -->
       <ProjectCard

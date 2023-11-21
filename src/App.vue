@@ -60,7 +60,7 @@ export default {
   </header>
 
   <!-- Sezione Main -->
-  <main class="py-4">
+  <main class="">
 
     <!-- Componente che visualizza la vista corrente in base alla rotta -->
     <router-view></router-view>
