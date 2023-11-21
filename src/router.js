@@ -1,36 +1,41 @@
-// 0.Import the createWebHashHistory and createRouter from vue-router
-
+// Importa le funzioni createWebHashHistory e createRouter da vue-router
 import { createWebHashHistory, createRouter } from 'vue-router'
 
+// Importa i componenti delle viste
 import HomeView from './views/HomeView.vue'
 import SingleProjectView from './views/SingleProjectView.vue'
 
-// 1. Define route components.
+// 1. Definisci i componenti delle rotte.
 
 //createApp(App).mount('#app')
 
-// 2. Define some routes
+// 2. Definisci alcune rotte
 
 //const HomeView = '';
 
 const routes = [
     {
-        path: '/', component: HomeView
+        // Rotta per la homepage
+        path: '/', 
+        component: HomeView
     },
     {
-        path: '/project/:slug', name: 'project', component: SingleProjectView
+        // Rotta per visualizzare un singolo progetto con un parametro dinamico :slug
+        path: '/project/:slug', 
+        name: 'project', // Nome della rotta
+        component: SingleProjectView
     }
 ]
 
-// 3. Create the router instance and pass the `routes` option
+// 3. Crea un'istanza del router
 
 const router = createRouter({
 
-    // 4. Provide the history implementation to use. We are using the hash history for simplicity here.
+    // 4. Fornisci l'implementazione della history da utilizzare. Qui usiamo hash history per semplicità.
     history: createWebHashHistory(),
-    routes
+    routes // Passa l'array di definizioni di rotte al router
 
 })
 
-// export the vue router instance
+// Esporta l'istanza del router di Vue
 export { router }

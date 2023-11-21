@@ -1,12 +1,12 @@
 <script>
 export default {
-  name: 'App',
+  name: 'App', // Il nome del componente Vue
 }
-
-
 </script>
 
 <template>
+
+  <!-- Sezione Header -->
   <header>
     <nav class="navbar navbar-expand-sm navbar-light bg-light">
       <div class="container">
@@ -16,22 +16,33 @@ export default {
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="mainNav">
+
+          <!-- Lista di link per la navigazione -->
           <ul class="navbar-nav me-auto mt-2 mt-lg-0">
             <li class="nav-item">
+
+              <!-- Link alla Home -->
               <router-link class="nav-link active" to="/" aria-current="page">Home<span
                   class="visually-hidden">(current)</span></router-link>
             </li>
             <li class="nav-item">
+
+              <!-- Link alla pagina "About" -->
               <router-link class="nav-link" to="/about">About</router-link>
             </li>
-
             <li class="nav-item">
+
+              <!-- Link alla pagina "Blog" -->
               <router-link class="nav-link" to="/blog">Blog</router-link>
             </li>
             <li class="nav-item">
+
+              <!-- Link alla pagina "Contacts" -->
               <router-link class="nav-link" to="/contacts">Contacts</router-link>
             </li>
           </ul>
+
+          <!-- Pulsante di accesso all'area admin -->
           <div class="admin">
             <a href="http://127.0.0.1:8000/admin" class="btn" target="__blank">
               Admin <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
@@ -43,23 +54,24 @@ export default {
               </svg>
             </a>
           </div>
-
         </div>
       </div>
     </nav>
-
   </header>
 
-  <!-- MAIN -->
+  <!-- Sezione Main -->
   <main class="py-4">
 
+    <!-- Componente che visualizza la vista corrente in base alla rotta -->
     <router-view></router-view>
-
   </main>
 
+  <!-- Sezione Footer -->
   <footer class="py-5 bg-dark text-light">
     <div class="container">
       <div class="row">
+
+        <!-- Colonna 1 del footer -->
         <div class="col">
           <h3>Lorem.</h3>
           <ul class="list-unstyled">
@@ -70,6 +82,8 @@ export default {
             <li><a href="#">Lorem</a></li>
           </ul>
         </div>
+
+        <!-- Colonna 2 del footer -->
         <div class="col">
           <h3>Deserunt?</h3>
           <ul class="list-unstyled">
@@ -80,6 +94,8 @@ export default {
             <li><a href="#">Lorem</a></li>
           </ul>
         </div>
+        
+        <!-- Colonna 3 del footer -->
         <div class="col">
           <h3>Voluptatibus.</h3>
           <ul class="list-unstyled">
