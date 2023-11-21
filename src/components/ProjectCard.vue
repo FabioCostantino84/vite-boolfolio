@@ -20,15 +20,14 @@ export default {
 
 <template>
   <!-- Elemento principale del componente: una card con informazioni del progetto -->
-  <div class="card text-center">
-    <!-- Titolo del progetto -->
-    <h2>{{ title }}</h2>
-    
+  <div class="card text-center h-100">
+
     <!-- Immagine del progetto -->
     <img v-if="thumb" :src="`${base_url}/storage/${thumb}`" alt="">
-    <div v-else>
-      Image not available
-    </div>
+    <img v-else src="https://picsum.photos/200/200" alt="Default Image">
+
+    <!-- Titolo del progetto -->
+    <h2>{{ title }}</h2>
 
     <!-- Dettagli del progetto -->
     <div class="text-start">
@@ -47,9 +46,11 @@ export default {
         </div>
       </div>
 
-      <!-- Descrizione del progetto -->
-      <strong>Description:</strong>
-      <p>{{ description }}</p>
+      <!-- Descrizione -->
+      <p v-if="description">{{ description }}</p>
+      <p v-else>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum libero alias commodi praesentium error explicabo quas quisquam sed blanditiis excepturi, consequatur officia eaque distinctio debitis nihil repellat aliquid iusto?
+      </p>
 
       <!-- Pulsanti per GitHub e Link esterno -->
       <div class="d-flex justify-content-around pb-2">
