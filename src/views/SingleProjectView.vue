@@ -32,8 +32,14 @@ export default {
       .then(resp => {
         // Logga i dati ricevuti dalla risposta
         console.log(resp.data.result);
-        // Aggiorna il dato del progetto nel componente
-        this.project = resp.data.result;
+
+        if (resp.data.success) {
+          // Aggiorna il dato del progetto nel componente
+          this.project = resp.data.result;
+        } else {
+
+          this.$router.push({name: 'Not Found'});
+        }
       })
       .catch(err => {
         // Gestisci eventuali errori durante la richiesta

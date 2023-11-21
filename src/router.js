@@ -2,8 +2,10 @@
 import { createWebHashHistory, createRouter } from 'vue-router'
 
 // Importa i componenti delle viste
-import HomeView from './views/HomeView.vue'
-import SingleProjectView from './views/SingleProjectView.vue'
+import HomeView from './views/HomeView.vue';
+import SingleProjectView from './views/SingleProjectView.vue';
+import NotFound from './views/NotFound.vue';
+
 
 // 1. Definisci i componenti delle rotte.
 
@@ -24,6 +26,11 @@ const routes = [
         path: '/project/:slug', 
         name: 'project', // Nome della rotta
         component: SingleProjectView
+    },
+    {
+        path: '/:pathMatch(.*)*',
+        name: 'NotFound',
+        component: NotFound,
     }
 ]
 
