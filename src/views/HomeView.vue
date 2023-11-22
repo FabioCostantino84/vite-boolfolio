@@ -77,45 +77,46 @@ export default {
     </div>
 
     <div class="container">
-    <h1>Latest projects</h1>
+        <h1>Latest projects</h1>
 
-    <!-- Paginazione -->
-    <div class="pagination-container" aria-label="Page navigation example">
-        <ul class="pagination">
+        <!-- Paginazione -->
+        <div class="pagination-container" aria-label="Page navigation example">
+            <ul class="pagination">
 
-            <!-- Link per la pagina precedente -->
-            <li class="page-item">
-                <a v-if="projects.current_page !== 1" class="page-link" @click="goFirstPage" href="#" aria-label="Previous">
-                    <span aria-hidden="true">&laquo;</span>
-                </a>
-            </li>
+                <!-- Link per la pagina precedente -->
+                <li class="page-item">
+                    <a v-if="projects.current_page !== 1" class="page-link" @click="goFirstPage" href="#"
+                        aria-label="Previous">
+                        <span aria-hidden="true">&laquo;</span>
+                    </a>
+                </li>
 
-            <!-- Link per la pagina precedente (numero di pagina) -->
-            <li v-if="projects.current_page !== 1" class="page-item">
-                <a @click="prevPage" class="page-link" href="#">{{ projects.current_page - 1 }}</a>
-            </li>
+                <!-- Link per la pagina precedente (numero di pagina) -->
+                <li v-if="projects.current_page !== 1" class="page-item">
+                    <a @click="prevPage" class="page-link" href="#">{{ projects.current_page - 1 }}</a>
+                </li>
 
-            <!-- Pagina corrente -->
-            <li class="page-item">
-                <a class="page-link bg-secondary" href="#">{{ projects.current_page }}</a>
-            </li>
+                <!-- Pagina corrente -->
+                <li class="page-item">
+                    <a class="page-link bg-secondary" href="#">{{ projects.current_page }}</a>
+                </li>
 
-            <!-- Link per la pagina successiva (numero di pagina) -->
-            <li v-if="projects.current_page < projects.last_page" class="page-item">
-                <a @click="nextPage" class="page-link" href="#">{{ projects.current_page + 1 }}</a>
-            </li>
+                <!-- Link per la pagina successiva (numero di pagina) -->
+                <li v-if="projects.current_page < projects.last_page" class="page-item">
+                    <a @click="nextPage" class="page-link" href="#">{{ projects.current_page + 1 }}</a>
+                </li>
 
-            <!-- Link per l'ultima pagina -->
-            <li class="page-item">
-                <a v-if="projects.current_page < projects.last_page" class="page-link" @click="goLastPage" href="#"
-                    aria-label="Next">
-                    <span aria-hidden="true">&raquo;</span>
-                </a>
-            </li>
+                <!-- Link per l'ultima pagina -->
+                <li class="page-item">
+                    <a v-if="projects.current_page < projects.last_page" class="page-link" @click="goLastPage" href="#"
+                        aria-label="Next">
+                        <span aria-hidden="true">&raquo;</span>
+                    </a>
+                </li>
 
-        </ul>
+            </ul>
+        </div>
     </div>
-</div>
 
 
     <div class="container">
@@ -126,7 +127,14 @@ export default {
                     :description="project.description" :github="project.github" :link="project.link"
                     :technologies="project.technologies" :slug="project.slug"></ProjectCard>
 
+                    <!-- <router-link class="text-decoration-none" :to="{ name: 'project', params: { id: project.id } }">
+        
+                        <ProjectCard :project="project" />
+        
+                    </router-link> -->
+
             </div>
+
         </div>
 
         <section class="my-5">

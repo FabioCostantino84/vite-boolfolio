@@ -5,6 +5,8 @@ export default {
   name: 'ProjectCard',
   // Proprietà del componente, rappresentano i dati passati da un componente padre
   props: {
+
+    /* project: Object, */
     title: String,
     thumb: String,
     base_url: String,
