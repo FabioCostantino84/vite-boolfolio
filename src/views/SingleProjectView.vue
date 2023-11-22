@@ -38,7 +38,7 @@ export default {
           this.project = resp.data.result;
         } else {
 
-          this.$router.push({name: 'Not Found'});
+          this.$router.push({ name: 'Not Found' });
         }
       })
       .catch(err => {
@@ -50,26 +50,16 @@ export default {
 </script>
 
 <template>
-
   <!-- La sezione principale del template -->
   <div class="container">
     <div class=" row-cols-3 py-4">
 
       <!-- Utilizza il componente ProjectCard per visualizzare le informazioni del progetto -->
-      <ProjectCard
-        :thumb="project.thumb"
-        :base_url="base_url"
-        :title="project.title"
-        :type="project.type"
-        :description="project.description"
-        :github="project.github"
-        :link="project.link"
-        :technologies="project.technologies"
-        :slug="project.slug"
-      ></ProjectCard>
+      <ProjectCard :thumb="project.thumb" :base_url="base_url" :title="project.title" :type="project.type"
+        :description="project.description" :github="project.github" :link="project.link"
+        :technologies="project.technologies" :slug="project.slug"></ProjectCard>
     </div>
   </div>
 </template>
 
-<style lang=scss scoped>
-</style>
+<style lang=scss scoped></style>

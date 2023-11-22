@@ -10,23 +10,59 @@ export default {
     data() {
         return {
             base_url: 'http://127.0.0.1:8000',
-            portfolio_api: '/api/projects',
+            portfolio_api: '/api/projects?page=',
             projects: [],
+            current_page: 1,
         };
     },
+    methods: {
+
+        // Avanzare alla pagina successiva
+        nextPage: function () {
+            this.current_page++;
+            this.axiosCall();
+        },
+
+        // Tornare alla pagina precedente
+        prevPage: function () {
+            this.current_page--;
+            this.axiosCall();
+        },
+
+        // Andare alla prima pagina
+        goFirstPage: function () {
+            this.current_page = 1;
+            this.axiosCall();
+        },
+
+        // Andare all'ultima pagina
+        goLastPage: function () {
+            this.current_page = this.projects.last_page;
+            this.axiosCall();
+        },
+
+        // Chiamata Axios per recuperare i dati dalla API
+        axiosCall: function () {
+            axios
+                .get(this.base_url + this.portfolio_api + this.current_page)
+                .then(response => {
+                    // Verifica se la risposta è nel formato atteso
+                    if (response.data && response.data.result) {
+                        this.projects = response.data.result;
+                    } else {
+                        console.error('Formato di risposta non valido');
+                    }
+                })
+                .catch(err => {
+                    // Gestione degli errori durante la chiamata Axios
+                    console.error(err);
+                });
+        },
+    },
+
+
     mounted() {
-        axios
-            .get(this.base_url + this.portfolio_api)
-            .then(response => {
-                if (response.data && response.data.result) {
-                    this.projects = response.data.result;
-                } else {
-                    console.error('Invalid response format');
-                }
-            })
-            .catch(err => {
-                console.error(err);
-            });
+        this.axiosCall()
     },
 };
 </script>
@@ -39,6 +75,48 @@ export default {
             <button class="btn btn-primary btn-lg" type="button">Find out more</button>
         </div>
     </div>
+
+    <div class="container">
+    <h1>Latest projects</h1>
+
+    <!-- Paginazione -->
+    <div class="pagination-container" aria-label="Page navigation example">
+        <ul class="pagination">
+
+            <!-- Link per la pagina precedente -->
+            <li class="page-item">
+                <a v-if="projects.current_page !== 1" class="page-link" @click="goFirstPage" href="#" aria-label="Previous">
+                    <span aria-hidden="true">&laquo;</span>
+                </a>
+            </li>
+
+            <!-- Link per la pagina precedente (numero di pagina) -->
+            <li v-if="projects.current_page !== 1" class="page-item">
+                <a @click="prevPage" class="page-link" href="#">{{ projects.current_page - 1 }}</a>
+            </li>
+
+            <!-- Pagina corrente -->
+            <li class="page-item">
+                <a class="page-link bg-secondary" href="#">{{ projects.current_page }}</a>
+            </li>
+
+            <!-- Link per la pagina successiva (numero di pagina) -->
+            <li v-if="projects.current_page < projects.last_page" class="page-item">
+                <a @click="nextPage" class="page-link" href="#">{{ projects.current_page + 1 }}</a>
+            </li>
+
+            <!-- Link per l'ultima pagina -->
+            <li class="page-item">
+                <a v-if="projects.current_page < projects.last_page" class="page-link" @click="goLastPage" href="#"
+                    aria-label="Next">
+                    <span aria-hidden="true">&raquo;</span>
+                </a>
+            </li>
+
+        </ul>
+    </div>
+</div>
+
 
     <div class="container">
         <div class="row row-cols-3">
