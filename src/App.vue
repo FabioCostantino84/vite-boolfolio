@@ -70,39 +70,40 @@ export default {
   </main>
 
   <!-- Sezione Footer -->
-  <footer class="py-5 bg-dark text-light">
-    <div class="container d-flex justify-content-center">
-      <div class="row gap-5">
-        <div class="col">
-          <h3 class="text-center">Technologies</h3>
-          <ul class="list-unstyled d-flex gap-2">
-            <li><a class="text-decoration-none text-light" href="#"><i class="fa-brands fa-2x fa-html5"></i></a></li>
-            <li><a class="text-decoration-none text-light" href="#"><i class="fa-brands fa-2x fa-css3-alt"></i></a></li>
-            <li><a class="text-decoration-none text-light" href="#"><i class="fa-brands fa-2x fa-sass"></i></a></li>
-            <li><a class="text-decoration-none text-light" href="#"><i class="fa-brands fa-2x fa-js"></i></a></li>
-            <li><a class="text-decoration-none text-light" href="#"><i class="fa-brands fa-2x fa-php"></i></a></li>
-          </ul>
-        </div>
-        <div class="col">
-          <h3 class="text-center">Frameworks</h3>
-          <ul class="list-unstyled d-flex gap-4">
-            <li><a class="text-decoration-none text-light" href="#"><i class="fa-brands fa-2x fa-bootstrap"></i></a></li>
-            <li><a class="text-decoration-none text-light" href="#"><i class="fa-brands fa-2x fa-vuejs"></i></a></li>
-            <li><a class="text-decoration-none text-light" href="#"><i class="fa-brands fa-2x fa-laravel"></i></a></li>
-          </ul>
-        </div>
-        <div class="col">
-          <h3 class="text-center">Tools</h3>
-          <ul class="list-unstyled d-flex gap-2">
-            <li><a class="text-decoration-none text-light" href="#"><i class="fa-brands fa-2x  fa-node"></i></a></li>
-            <li><a class="text-decoration-none text-light" href="#"><i class="fa-brands fa-2x  fa-git-alt"></i></a></li>
-            <li><a class="text-decoration-none text-light" href="#"><i class="fa-brands fa-2x  fa-github"></i></a></li>
-            <li><a class="text-decoration-none text-light" href="#"><i class="fa-solid  fa-2x fa-database"></i></a></li>
-          </ul>
-        </div>
+<footer class="py-5 bg-dark text-light">
+  <div class="container d-flex justify-content-center">
+    <div class="row gap-5">
+      <div class="col">
+        <h3 class="text-center">Technologies</h3>
+        <ul class="list-unstyled d-flex gap-2">
+          <li><a class="text-decoration-none text-light" href="#" title="HTML5"><i class="fa-brands fa-2x fa-html5"></i></a></li>
+          <li><a class="text-decoration-none text-light" href="#" title="CSS3"><i class="fa-brands fa-2x fa-css3-alt"></i></a></li>
+          <li><a class="text-decoration-none text-light" href="#" title="Sass"><i class="fa-brands fa-2x fa-sass"></i></a></li>
+          <li><a class="text-decoration-none text-light" href="#" title="JavaScript"><i class="fa-brands fa-2x fa-js"></i></a></li>
+          <li><a class="text-decoration-none text-light" href="#" title="PHP"><i class="fa-brands fa-2x fa-php"></i></a></li>
+        </ul>
+      </div>
+      <div class="col">
+        <h3 class="text-center">Frameworks</h3>
+        <ul class="list-unstyled d-flex gap-4">
+          <li><a class="text-decoration-none text-light" href="#" title="Bootstrap"><i class="fa-brands fa-2x fa-bootstrap"></i></a></li>
+          <li><a class="text-decoration-none text-light" href="#" title="Vue.js"><i class="fa-brands fa-2x fa-vuejs"></i></a></li>
+          <li><a class="text-decoration-none text-light" href="#" title="Laravel"><i class="fa-brands fa-2x fa-laravel"></i></a></li>
+        </ul>
+      </div>
+      <div class="col">
+        <h3 class="text-center">Tools</h3>
+        <ul class="list-unstyled d-flex gap-2">
+          <li><a class="text-decoration-none text-light" href="#" title="Node.js"><i class="fa-brands fa-2x  fa-node"></i></a></li>
+          <li><a class="text-decoration-none text-light" href="#" title="Git"><i class="fa-brands fa-2x  fa-git-alt"></i></a></li>
+          <li><a class="text-decoration-none text-light" href="#" title="GitHub"><i class="fa-brands fa-2x  fa-github"></i></a></li>
+          <li><a class="text-decoration-none text-light" href="#" title="Database"><i class="fa-solid  fa-2x fa-database"></i></a></li>
+        </ul>
       </div>
     </div>
-  </footer>
+  </div>
+</footer>
+
 
   <footer class="py-5 bg-dark text-light">
     <div class="container">

@@ -29,16 +29,20 @@ export default {
             this.axiosCall();
         },
 
-        // Andare alla prima pagina
-        goFirstPage: function () {
-            this.current_page = 1;
-            this.axiosCall();
+        // Modifica goPrevPage per andare alla pagina precedente
+        goPrevPage: function () {
+            if (this.current_page > 1) {
+                this.current_page--;
+                this.axiosCall();
+            }
         },
 
-        // Andare all'ultima pagina
-        goLastPage: function () {
-            this.current_page = this.projects.last_page;
-            this.axiosCall();
+        // Modifica goNextPage per andare alla pagina successiva
+        goNextPage: function () {
+            if (this.current_page < this.projects.last_page) {
+                this.current_page++;
+                this.axiosCall();
+            }
         },
 
         // Chiamata Axios per recuperare i dati dalla API
@@ -85,7 +89,7 @@ export default {
 
                 <!-- Link per la pagina precedente -->
                 <li class="page-item">
-                    <a v-if="projects.current_page !== 1" class="page-link" @click="goFirstPage" href="#"
+                    <a v-if="projects.current_page !== 1" class="page-link" @click="goPrevPage" href="#"
                         aria-label="Previous">
                         <span aria-hidden="true">&laquo;</span>
                     </a>
@@ -108,7 +112,7 @@ export default {
 
                 <!-- Link per l'ultima pagina -->
                 <li class="page-item">
-                    <a v-if="projects.current_page < projects.last_page" class="page-link" @click="goLastPage" href="#"
+                    <a v-if="projects.current_page < projects.last_page" class="page-link" @click="goNextPage" href="#"
                         aria-label="Next">
                         <span aria-hidden="true">&raquo;</span>
                     </a>
@@ -127,7 +131,7 @@ export default {
                     :description="project.description" :github="project.github" :link="project.link"
                     :technologies="project.technologies" :slug="project.slug"></ProjectCard>
 
-                    <!-- <router-link class="text-decoration-none" :to="{ name: 'project', params: { id: project.id } }">
+                <!-- <router-link class="text-decoration-none" :to="{ name: 'project', params: { id: project.id } }">
         
                         <ProjectCard :project="project" />
         
